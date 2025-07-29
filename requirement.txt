@@ -1,0 +1,14 @@
+streamlit==1.32.0
+streamlit-autorefresh==0.0.3
+pandas==2.2.1
+kafka-python==2.0.2
+
+Start Zookeeper (in 1st terminal) : bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Start Kafka Broker (in 2nd terminal) : bin/kafka-server-start.sh config/server.properties
+
+Create Kafka Topic (optional, run once) : bin/kafka-topics.sh --create --topic patient_vitals --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+for confirmation it’s created : bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+Monitor the Topic (Optional: for debugging) : bin/kafka-console-consumer.sh --topic patient_vitals --from-beginning --bootstrap-server localhost:9092
